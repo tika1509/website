@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="font-awesome.min.css">
+	<title></title>
+
+	<style>
+			* {box-sizing: border-box;}
+			
+			.img-magnifier-container {
+			  position:relative;
+			}
+			
+			.img-magnifier-glass {
+			  position: absolute;
+			  border: 1px solid #000;
+			  border-radius: 50%;
+			  cursor: none;
+			  /*Set the size of the magnifier glass:*/
+			  width: 150px;
+			  height: 150px;
+			}
+			</style>
+			<script>
+			function magnify(imgID, zoom) {
+			  var img, glass, w, h, bw;
+			  img = document.getElementById(imgID);
+			  /*create magnifier glass:*/
+			  glass = document.createElement("DIV");
+			  glass.setAttribute("class", "img-magnifier-glass");
+			  /*insert magnifier glass:*/
+			  img.parentElement.insertBefore(glass, img);
+			  /*set background properties for the magnifier glass:*/
+			  glass.style.backgroundImage = "url('" + img.src + "')";
+			  glass.style.backgroundRepeat = "no-repeat";
+			  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+			  bw = 3;
+			  w = glass.offsetWidth / 2;
+			  h = glass.offsetHeight / 2;
+			  /*execute a function when someone moves the magnifier glass over the image:*/
+			  glass.addEventListener("mousemove", moveMagnifier);
+			  img.addEventListener("mousemove", moveMagnifier);
+			  /*and also for touch screens:*/
+			  glass.addEventListener("touchmove", moveMagnifier);
+			  img.addEventListener("touchmove", moveMagnifier);
+			  function moveMagnifier(e) {
+				var pos, x, y;
+				/*prevent any other actions that may occur when moving over the image*/
+				e.preventDefault();
+				/*get the cursor's x and y positions:*/
+				pos = getCursorPos(e);
+				x = pos.x;
+				y = pos.y;
+				/*prevent the magnifier glass from being positioned outside the image:*/
+				if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+				if (x < w / zoom) {x = w / zoom;}
+				if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+				if (y < h / zoom) {y = h / zoom;}
+				/*set the position of the magnifier glass:*/
+				glass.style.left = (x - w) + "px";
+				glass.style.top = (y - h) + "px";
+				/*display what the magnifier glass "sees":*/
+				glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+			  }
+			  function getCursorPos(e) {
+				var a, x = 0, y = 0;
+				e = e || window.event;
+				/*get the x and y positions of the image:*/
+				a = img.getBoundingClientRect();
+				/*calculate the cursor's x and y coordinates, relative to the image:*/
+				x = e.pageX - a.left;
+				y = e.pageY - a.top;
+				/*consider any page scrolling:*/
+				x = x - window.pageXOffset;
+				y = y - window.pageYOffset;
+				return {x : x, y : y};
+			  }
+			}
+			</script>
+	
+</head>
+<body>
+	<header>
+		<div class="menu" align="center" width="100%" height="50px" style="width: 100%; height: 100px; background-color: #0B8F30;">
+			<div style="display: inline-flex; align-items: center; padding-top: 10px">
+				<div>	
+					<img src="../male1.png" style="width: 30px; height: 80px" >
+				</div>
+				<div style="padding-left: 40px; padding-right: 40px">
+					<style>
+						h2,h4{
+							font-weight: normal;
+							color: #fff;
+							margin: 0px;
+							padding: 0px;
+							font-family: 'Kanit';
+						}
+					</style>	
+					<h2>TEORITY</h2>
+					<h4>MEDIA AJAR INTERAKTIF</h4>
+					<h4>BERPETUALANG DI DALAM TUBUH MANUSIA</h4>
+				</div>
+				<div>	
+					<img src="../female1.png" style="width: 30px; height: 80px">
+				</div>
+			</div>
+
+			<style>
+				.dropdown ul{
+					list-style: none;
+				}
+				.dropdown ul li{
+
+				}
+				.dropdown ul li a{
+					text-decoration: none;
+					color: #fff;
+				}
+				.sub-dropdown{
+					display: none;
+				}
+			</style>
+			<div class="dropdown" style="padding-top: 30px; padding-right: 80px; float: right">
+				<img src="../menu3.png" width="45px" height="45px">
+				<div class="sub-dropdown">
+					<ul>
+						<li><a href="index.php"><img src="../home.png" width="15px" height="15px">Home</a></li>
+						<li><a href="game.php"><img src="../game.png" width="15px" height="15px">Game</a></li>
+						<li><a href="quiz.php"><img src="../quiz.png" width="20px" height="20px">Quiz</a></li>
+						<li><a href="about.php"><img src="../about.png" width="15px" height="15px">Tentang Kami</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="content" style="background-image: url('../polos.jpg'); width:100%; height: 550px">
+		<div width="100%" align="center" style="padding-top: 10px; padding-bottom: 10px">
+			<a href="" style="border: 1px solid #219653; background-color: #219653; box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3); border-radius: 20px; width: 200px; height: 70px; display: inline-flex; align-items: center; text-decoration: none">
+				<img src="../sistem-peredaran-darah.png" width="70px" height="50px">
+				<p style="color: #D6E339; font-weight: bold; font-size: medium; font-family: 'Kanit';">Sistem Peredaran Darah</p>
+			</a>	
+		</div>
+
+		<div width="100%" align="center" style="padding-top: 20px; padding-bottom: 10px">
+			<div class="materi" align="center" style="background-color: #6CAAC5; width: 70%; height: auto; border-radius: 20px; display: inline-flex">
+				<div class="img-magnifier-container" style="width: 50%; position: relative;">
+					<h3 style="color: #ff1493; font-weight: bolder; padding-bottom: 22px">GAMBAR ORGAN</h3>
+					<img id="expandedImg" src="../sistem-peredaran-darah1.png" width="300px" height="250px">
+					
+					<!-- <div id="imgtext"></div>
+					<p style="color: #fff">*silahkan di klik salah satu organ</p> -->
+
+					<div style="width: 100%; cursor:pointer; ">
+						<img src="../sistem-peredaran-darah1.png" alt="<p><h2>Sistem Peredaran Darah</h2>" style="width: 40px; height: 40px" onclick="myFunction(this)">
+						<img src="../jantung1.png" alt="<p><h2>Jantung</h2>" style="width: 40px; height: 40px" onclick="myFunction(this)">
+						<img src="../arteri-merah.png" alt="<p><h2>Arteri Merah</h2>" style="width: 40px; height: 40px" onclick="myFunction(this)">
+						<img src="../vena-biru.png" alt="<p><h2>Vena Biru</h2>" style="width: 40px; height: 40px" onclick="myFunction(this)">
+						<img src="../darah1.png" alt="<p><h2>Darah</h2>" style="width: 40px; height: 40px" onclick="myFunction(this)">
+					</div>
+				</div>
+				<div style="width: 50%">
+					<div id="imgtext" width="100%">
+						<div id="animasi">
+						<h3 style="color: #ff1493; font-weight: bold">ANIMASI SISTEM<br>PEREDARAN DARAH</h3>
+						<video id="anima" width="300px" height="250px" controls autoplay loop>
+							<source src="../peredaran-darah.mp4" type="video/mp4" />
+							<!-- <source src="video.webm" type="video.webm"/>
+							<source src="video.oog" type="video.oog"/> -->
+							Browser Anda Tidak Support HTML 5 Video
+						</video>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div style="margin: 30px 20px">	
+			<p style="color: #fff; font-family: 'Kanit'; margin: 5px 0px">Ulas Kami :</p>
+			<a href="https://www.instagram.com"><img src="../instagram.png" width="20px" height="20px"/></a>
+			<a href="https://www.youtube.com"><img src="../youtube.png" width="20px" height="20px"/></a>
+		</div>
+	</div>
+
+</body>
+</html>
+
+<script>
+	function myFunction(imgs){
+		var expandImg = document.getElementById("expandedImg");
+		var imgText = document.getElementById("imgtext");
+		expandImg.src = imgs.src;
+		imgText.innerHTML = imgs.alt;
+		expandImg.parentElement.style.display = "block";
+		magnify("expandedImg", 2);
+	}
+	
+</script>

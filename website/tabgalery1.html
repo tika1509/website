@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="font-awesome.min.css">
+	<title></title>
+</head>
+<body>
+	<div class="content" style="background-color: #f0b5af; width:100%; height: 550px">
+		<div width="100%" align="center" style="padding-top: 10px; padding-bottom: 10px">
+			<a href="" style="border: 1px solid #219653; background-color: #219653; box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.3); border-radius: 20px; width: 200px; height: 70px; display: inline-flex; align-items: center; text-decoration: none">
+				<img src="../sistem-peredaran-darah.png" width="70px" height="50px">
+				<p style="color: #D6E339; font-weight: bold; font-size: medium;">Sistem Peredaran Darah</p>
+			</a>	
+		</div>
+
+		<div width="100%" align="center" style="padding-top: 20px; padding-bottom: 10px">
+			<div class="materi" align="center" style="background-color: #6CAAC5; width: 70%; height: 370px; border-radius: 20px; display: inline-flex">
+				<div class="gambar" style="width: 50%; position: relative;">
+					<h3 style="color: #ff1493; font-weight: bolder; padding-bottom: 22px">GAMBAR ORGAN</h3>
+					<img id="expandedImg" src="../organ-sistem-darah.png" width="300px" height="250px">
+					
+					<div style="display: inline-flex;">
+						<!-- <div style="width: 25%; padding-right: 5px; cursor:pointer;" onclick="myFunction(this)"> -->
+							<img src="../organ-sistem-darah.png" style="width: 20px; height: 20px" onclick="myFunction(this)">
+							<p style="display: none" onclick="myFunction(this)">
+								Jantung  adalah komponen paling penting dalam sirkulasi darah di tubuh manusia. Jantung berfungsi untuk memompa darah sehingga dapat mengalir ke seluruh tubuh. Jantung terdiri atas empat ruangan, yaitu serambi kanan, serambi kiri, bilik kanan, dan bilik kiri. Serambi adalah ruangan untuk menerima dan menampung darah yang masuk jantung. Bilik adalah ruang untuk menampung darah yang akan dipompakan ke seluruh tubuh. Bilik berfungsi untuk memompakan darah ke seluruh tubuh. Bilik memiliki dinding yang tebal. Serambi berfungsi untuk memompa darah menuju bilik. Dinding serambi lebih tipis daripada dinding bilik. Agar aliran darah tetap satu arah, maka ada klep (katup) yang terletak diantara serambi dan bilik. Katup inilah yang mencegah darah yang sudah masuk ke bilik untuk kembali serambi.
+							</p>
+						<!-- </div> -->
+						<!-- <div style="width: 25%; padding-right: 5px; cursor:pointer;" onclick="myFunction(this)"> -->
+							<img src="../organ-sistem-pernapasan.png" style="width: 20px; height: 20px" onclick="myFunction(this)">
+						<!-- </div> -->
+						<!-- <div style="width: 25%; padding-right: 5px; cursor:pointer;" onclick="myFunction(this)"> -->
+							<img src="../organ-sistem-pencernaan.png" style="width: 20px; height: 20px" onclick="myFunction(this)">
+						<!-- </div> -->
+					</div>
+
+				</div>
+				<div style="width: 50%">
+					<div id="imgtext" width="100%">
+					<h3 style="color: #ff1493; font-weight: bold">ANIMASI SISTEM<br>PEREDARAN DARAH</h3>
+					<video width="300px" height="250px" controls autoplay loop>
+						<source src="../peredaran-darah.mp4" type="video/mp4" />
+						<!-- <source src="video.webm" type="video.webm"/>
+						<source src="video.oog" type="video.oog"/> -->
+						Browser Anda Tidak Support HTML 5 Video
+					</video>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+	</div>
+
+</body>
+</html>
+
+<script>
+	function myFunction(imgs){
+		var expandImg = document.getElementById("expandedImg");
+		var imgText = document.getElementById("imgtext");
+		expandImg.src = imgs.src;
+		imgText.innerHTML = p;
+		expandImg.parentElement.style.display = "block";
+	}
+</script>
